@@ -1,0 +1,35 @@
+from fractions import Fraction
+
+
+
+print("Welcome to the calculator")
+
+# Solving or leaving in calculator
+while True:
+    equation = input(" " )
+
+    if equation.lower() == 'exit':
+        print("See ya dude")
+        break
+
+    equation = equation.replace('^', '**')
+
+    try:
+        first_result = eval(equation)      
+        print(first_result)
+        
+ #turning their answer into a fraction       
+        if isinstance(first_result, float):
+                want_fractions = input("Would you like to see your answer as a fraction, yes or no? ")
+                if want_fractions.lower() == "yes":
+                                       second_result = Fraction(first_result).limit_denominator()
+                                       print("Your final result is ", second_result)
+
+            
+        
+        
+        
+
+    except Exception as e:
+        print("Invalid")
+        break
